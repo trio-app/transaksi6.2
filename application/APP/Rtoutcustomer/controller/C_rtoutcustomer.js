@@ -29,7 +29,7 @@
 					'GRID_rtoutcustomer > toolbar > button[action=export]': {
                                             click: this.exportTransaksi
                                         },
-                                        'GRIDS_rtoutcustomer > toolbar > button[action=exportdetail]': {
+                                        'GRIDS_rtoutcustomer > toolbar > button[action=export]': {
                                             click: this.exportDetail
                                         },
                                         'FRM_rtoutcustomer button[itemId=searchfilter]': {
@@ -54,7 +54,8 @@
                                     anyMatch: true,
                                     value   : values
                                 } ]);
-                        },getData: function(grid, record){
+                        },
+                        getData: function(grid, record){
                             var grid = this.getGRIDS_rtoutcustomer();
                             var store = grid.getStore();
                                 
@@ -67,6 +68,43 @@
                                     store.loadData(Ext.decode(transport.responseText));
                                 }
                             });
-                        }	
+                        },
+                        exportTransaksi : function(){
+                            var grid = Ext.getCmp('GRID_rtoutcustomer');
+                            var store = grid.getStore();
+                            var data = [];
+                            store.each(function(rec){
+                                    //console.log(rec.data.id);
+                                    data.push({
+                                        Customer : rec.data.customer_nama,
+                                        Date : rec.data.receiptout_date,
+                                        Document :rec.data.receiptout_doc,
+                                        Nominal :rec.data.Price,
+                                    });
+                            }); 
+                            //console.log(data);
+
+                            JSONToCSVConvertor(data, "Report Tanda Terima OUT By Customer", true);
+
+                        },
+                        exportDetail : function(){
+                            var grid = Ext.getCmp('GRIDS_rtoutcustomer');
+                            var store = grid.getStore();
+                            var data = [];
+                            store.each(function(rec){
+                                    //console.log(rec.data.id);
+                                    data.push({
+                                       NoInvoice : rec.data.recdetailout_invoice,
+                                       NoSuratJalan : rec.data.recdetailout_delivery,
+                                       PO   : rec.data.recdetailout_po,
+                                       TanggalInvoice : rec.data.recdetailout_date,
+                                       Nominal : rec.data.recdetailout_price,
+                                    });
+                            }); 
+                            //console.log(data);
+
+                            JSONToCSVConvertor(data, "Report Tanda Terima OUT Detail By Customer", true);
+
+                        }
 						
 		});
