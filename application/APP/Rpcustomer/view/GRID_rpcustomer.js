@@ -5,9 +5,13 @@
     //store: 'SRCustomer',
     autoScroll: true,
     //frame:true,
-    height: 250,
+    height: 200,
     initComponent: function () {
       this.title = 'Packinglist';
+      this.tbar = [
+          '->',
+        {text    : 'Export Excel',action  : 'export',
+      }];
       this.columns = [
         { xtype:'rownumberer'},  
         { header: 'Customer',dataIndex:'customer_nama',width:150},

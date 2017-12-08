@@ -31,17 +31,15 @@ class Rtincustomer extends CI_Controller {
 	}
         
         public function exportTransaksi(){
-        $doc = $this->input->post('transaksi_doc');
-        $this->load->model('R_rtincustomer');
-        print_r($this->R_rtincustomer->exportTransaksi($doc));
-        $data['query'] = $this->R_rtincustomer->exportTransaksi();
-        $this->load->view('vexceltransaksi');
+            $this->load->model('R_rtincustomer');
+            $data['query'] = $this->R_rtincustomer->exportData();
+            $this->load->view('V_exceltransaksi', $data);
         }
     
         public function exportDetail(){
-        $this->load->model('R_rtincustomer');
-        $data['query'] = $this->R_rtincustomer->exportDetail();
-        $this->load->view('vexceldetail', $data);
+            $this->load->model('R_rtincustomer');
+            $data['query'] = $this->R_rtincustomer->exportDetail();
+            $this->load->view('V_exceltransaksidetail', $data);
         }
 
         

@@ -1,9 +1,13 @@
 Ext.define('Almindo.Rpcustomer.view.GRIDS_rpcustomer',{
                         extend: 'Ext.grid.Panel',
                         alias: 'widget.GRIDS_rpcustomer',
-                        height: 250,
+                        height: 200,
                         initComponent: function(){
                             this.title = 'Packinglist Detail';
+                            this.tbar = [
+                                '->',
+                              {text    : 'Export Excel',action  : 'export',
+                            }];
                             this.columns= [
                                 {header: 'No. SJ', dataIndex: 'trdetail_sjap', width:100},
                                 {header: 'Item', dataIndex: 'item_nama', width:150},

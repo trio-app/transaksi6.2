@@ -2,10 +2,14 @@
                         extend: 'Ext.grid.Panel',
                         alias: 'widget.GRIDS_rpdate',
                         id: 'GRIDS_rpdate',
-                        height: 250,
+                        height: 200,
                         //store: 'SRCustomerDetail',
                             initComponent: function(){
                                 this.title = 'Packinglist Detail';
+                                this.tbar = [
+                                    '->',
+                                  {text    : 'Export Excel',action  : 'export',
+                                }];
                                  this.columns= [
                                     //{xtype: 'rownumberer'},
                                     {header: 'No. SJ', dataIndex: 'trdetail_sjap', width:100},

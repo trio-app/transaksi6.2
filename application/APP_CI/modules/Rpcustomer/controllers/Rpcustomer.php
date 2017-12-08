@@ -31,18 +31,17 @@ class Rpcustomer extends CI_Controller {
 	}
         
         public function exportTransaksi(){
-        $doc = $this->input->post('transaksi_doc');
         $this->load->model('R_rpcustomer');
-        print_r($this->Rrpcustomer->exportTransaksi($doc));
-        $data['query'] = $this->Rrpcustomer->exportTransaksi();
-        $this->load->view('vexceltransaksi');
-        }
+        $data['query'] = $this->R_rpcustomer->exportData();
+        $this->load->view('V_exceltransaksi', $data);
+    }
     
         public function exportDetail(){
-        $this->load->model('Rrpcustomer');
-        $data['query'] = $this->Rrpcustomer->exportDetail();
-        $this->load->view('vexceldetail', $data);
+        $this->load->model('R_rpcustomer');
+        $data['query'] = $this->R_rpcustomer->exportDetail();
+        $this->load->view('V_exceltransaksidetail', $data);
         }
+        
 
         
 }

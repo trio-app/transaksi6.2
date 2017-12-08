@@ -28,17 +28,15 @@ class Rpdate extends MX_Controller{
 	}
 
 	public function exportTransaksi(){
-        $doc = $this->input->post('transaksi_doc');
-        $this->load->model('R_rpdate');
-        print_r($this->R_rpdate->exportTransaksi($doc));
-        $data['query'] = $this->R_rpdate->exportTransaksi();
-        $this->load->view('vexceltransaksi');
+            $this->load->model('R_rpcustomer');
+            $data['query'] = $this->R_rpcustomer->exportData();
+            $this->load->view('V_exceltransaksi', $data);
         }
 
 	public function exportDetail(){
-        $this->load->model('R_rpdate');
-        $data['query'] = $this->R_rpdate->exportDetail();
-        $this->load->view('vexceldetail', $data);
+            $this->load->model('R_rpcustomer');
+            $data['query'] = $this->R_rpdate->exportDetail();
+            $this->load->view('v_exceltransaksidetail', $data);
         }
 
 }

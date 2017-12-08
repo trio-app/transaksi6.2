@@ -1,6 +1,6 @@
 <script>
-/*Ext.onReady(function () {
-    Ext.Loader.setConfig({
+Ext.onReady(function () {
+/*    Ext.Loader.setConfig({
                     enabled: true,
                     disableCaching: false,
                     paths: {
@@ -54,7 +54,8 @@
                 
             }
         }
-    );    
+    );
+});    
 //});
 
 </script>

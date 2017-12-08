@@ -72,6 +72,49 @@ Ext.define('Almindo.Rpdate.controller.C_rpdate',{
                     store.loadData(Ext.decode(transport.responseText));
                 }
             });
-        }	
+        },
+        
+        exportTransaksi : function(){
+                            var grid = Ext.getCmp('GRID_rpdate');
+                            var store = grid.getStore();
+                            var data = [];
+                            store.each(function(rec){
+                                    //console.log(rec.data.id);
+                                    data.push({
+                                        Customer : rec.data.customer_nama,
+                                        Date : rec.data.transaksi_date,
+                                        Document :rec.data.transaksi_doc,
+                                        Amount:rec.data.Amount
+                                    });
+                            }); 
+                            //console.log(data);
+
+                            JSONToCSVConvertor(data, "Report Packing List By Date", true);
+
+                        },
+                        exportDetail : function(){
+                            var grid = Ext.getCmp('GRIDS_rpdate');
+                            var store = grid.getStore();
+                            var data = [];
+                            store.each(function(rec){
+                                    //console.log(rec.data.id);
+                                    data.push({
+                                       NOSJ : rec.data.trdetail_sjap,
+                                       Item : rec.data.item_nama,
+                                       PO   : rec.data.trdetail_po,
+                                       Date : rec.data.trdetail_date,
+                                       Qty : rec.data.trdetail_qty,
+                                       Unit : rec.data.trdetail_unit,
+                                       Price : rec.data.trdetail_price,
+                                       Amount: rec.data.trdetail_amount,
+                                       Weight : rec.data.trdetail_weight,
+                                       Pack : rec.data.trdetail_pack,
+                                    });
+                            }); 
+                            //console.log(data);
+
+                            JSONToCSVConvertor(data, "Report Packing List Detail By Date", true);
+
+                        }
 });
 

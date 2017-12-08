@@ -8,6 +8,7 @@
         <link  href="<?php echo extjs_url().'build/classic/theme-classic/resources/theme-classic-all.css'; ?>" rel="stylesheet" />
         <script src="<?php echo extjs_url().'build/ext-all.js'; ?>"></script>
         <script src="<?php echo extjs_url().'build/classic/theme-classic/theme-classic.js'; ?>"></script>
+        <script src="<?php echo base_url().'system/exportexcel.js'; ?>"></script>
         
     <script type="text/javascript">    
         // base variable        
