@@ -31,10 +31,16 @@ class Rtindate extends CI_Controller {
         }        
 
         public function exportTransaksi(){
-        $this->load->model('R_rtindate');
-        $data['query'] = $this->R_rtindate->exportTransaksi();
-        $this->load->view('vexceltransaksi', $data);
-    } 
+            $this->load->model('R_rtindate');
+            $data['query'] = $this->R_rtindate->exportData();
+            $this->load->view('V_exceltransaksi', $data);
+        }
+        
+        public function exportDetail(){
+            $this->load->model('R_rtindate');
+            $data['query'] = $this->R_rtindate->exportDetail();
+            $this->load->view('V_exceltransaksidetail', $data);
+        }
 
       
 }

@@ -3,8 +3,12 @@ Ext.define('Almindo.Rtindate.view.GRID_rtindate',{
     alias: 'widget.GRID_rtindate',
     title: 'Tanda Terima IN',
     border: 2,
-    height: 250,
+    height: 200,
         initComponent: function () {
+            this.tbar = [
+                                '->',
+                              {text    : 'Export Excel',action  : 'export',
+                            }];
             this.columns= [
                 {header: 'No.', xtype: 'rownumberer'},
                 {header: 'Customer', dataIndex: 'customer_nama', width:150},
