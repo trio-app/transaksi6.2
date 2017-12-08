@@ -3,8 +3,12 @@ Ext.define('Almindo.Rtoutdate.view.GRID_rtoutdate',{
     alias: 'widget.GRID_rtoutdate',
     title: 'Tanda Terima Out',
     border: 2,
-    height: 250,
+    height: 200,
     initComponent: function () {
+        this.tbar = [
+          '->',
+        {text    : 'Export Excel',action  : 'export',
+      }];
            this.columns= [
                {header: 'No.', xtype: 'rownumberer'},
                {header: 'Customer', dataIndex: 'customer_nama', width:150},

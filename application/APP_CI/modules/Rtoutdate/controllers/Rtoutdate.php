@@ -28,6 +28,20 @@ class Rtoutdate extends CI_Controller {
             header('Content-type: application/json');
             print_r( $this->R_rtoutdate->load_default($start,$limit,$filter));
 	}
+        
+        public function exportTransaksi(){
+            $this->load->model('R_rtoutdate');
+            $data['query'] = $this->R_rtoutdate->exportData();
+            $this->load->view('V_exceltransaksi', $data);
+        }
+    
+        public function exportDetail(){
+            $this->load->model('R_rtoutdate');
+            $data['query'] = $this->R_rtoutdate->exportDetail();
+            $this->load->view('V_exceltransaksidetail', $data);
+        }
+        
+        
 
         
 }
