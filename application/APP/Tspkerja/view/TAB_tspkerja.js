@@ -24,7 +24,7 @@ Ext.define('Almindo.Tspkerja.view.TAB_tspkerja',{
             text: 'Reset',
             handler: function(){
                 var frm = Ext.getCmp('FRM_tspkerja');
-                frm.setAction('add');
+                frm.setActions('add');
                 frm.getForm().reset(); 
             }
         }]

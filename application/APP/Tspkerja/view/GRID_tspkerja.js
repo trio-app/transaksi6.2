@@ -60,10 +60,10 @@
         displayMsg: 'Total Data {0} - {1} of {2}',
         emptyMsg: "No Data Display"
         });
-        this.addEvents('removeitem');
-        this.addEvents('print_file');
-        this.addEvents('PROSES');
-        this.addEvents('FINISH');
+//        this.addEvents('removeitem');
+//        this.addEvents('print_file');
+//        this.addEvents('PROSES');
+//        this.addEvents('FINISH');
         this.actions = {
             removeitem: Ext.create('Ext.Action', {
                 text: 'Delete Record',

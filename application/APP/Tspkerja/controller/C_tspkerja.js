@@ -8,8 +8,8 @@ Ext.define('Almindo.Tspkerja.controller.C_tspkerja',{
         'Almindo.Tspkerja.view.WIN_tspkbahan',
         
         
-        'Almindo.Mcustomer.view.GRID_mcustomer',
-        'Almindo.Mbahan.view.GRID_mbahan'
+//        'Almindo.Mcustomer.view.GRID_mcustomer',
+//        'Almindo.Mbahan.view.GRID_mbahan'
         
     ],
     stores: [
@@ -117,7 +117,7 @@ Ext.define('Almindo.Tspkerja.controller.C_tspkerja',{
         var store = Ext.getStore('Almindo.Tspkerja.store.ST_tspkerja');
         var values = form.getValues();
         var record = form.getRecord();
-        var action = form.getAction();
+        var action = form.getActions();
         var recValue = Ext.create('Almindo.Tspkerja.model.M_tspkerja', values);
         console.log(action);
         console.log(values);
@@ -139,33 +139,67 @@ Ext.define('Almindo.Tspkerja.controller.C_tspkerja',{
             Ext.Ajax.request({
                     url: base_url + 'Tspkerja/' +  inAction,
                     method: 'POST',
-                    type:'json',
+                    //type:'json',
                     params: JSON.stringify(record.data),
                     success: function(response){
                             switch(inAction) {
                                     case 'delete':
                                                     store.load();
-                                                    createAlert('Delete S. P. K.', 'Delete Data Success', 'success');
+                                                    Ext.toast({
+                                                        html: 'Delete SPK Success',
+                                                        title: 'Notification',
+                                                        width: 200,
+                                                        align: 'tr',
+                                                        icon: base_url + 'system/images/icons/accept.png',
+                                                        timeout: 5000
+                                                    }); 
                                             break;
                                     case 'create' :
-                                                    store.load();
-                                                    createAlert('Insert S. P. K.', 'Insert Data Success', 'success');
+                                                    Ext.toast({
+                                                        html: 'Create SPK Success',
+                                                        title: 'Notification',
+                                                        width: 200,
+                                                        align: 'tr',
+                                                        icon: base_url + 'system/images/icons/accept.png',
+                                                        timeout: 5000
+                                                    }); 
                                             break;
                                     case 'update' :
                                                     store.load();
-                                                    createAlert('Update S. P. K.', 'Update Data Success', 'success');
+                                                    Ext.toast({
+                                                        html: 'Update SPK Success',
+                                                        title: 'Notification',
+                                                        width: 200,
+                                                        align: 'tr',
+                                                        icon: base_url + 'system/images/icons/accept.png',
+                                                        timeout: 5000
+                                                    }); 
                                             break;
                                     case 'PROSES' :
                                                     store.load();
-                                                    createAlert('PROSES', 'DATA Sedang di PROSES');
+                                                    Ext.toast({
+                                                        html: 'PROSES, Data Sedang Di Proses',
+                                                        title: 'Notification',
+                                                        width: 200,
+                                                        align: 'tr',
+                                                        icon: base_url + 'system/images/icons/accept.png',
+                                                        timeout: 5000
+                                                    }); 
                                             break;
                                     case 'FINISH' :
                                                     store.load();
-                                                    createAlert('FINISH', 'DATA Sudah Selesai');
+                                                    Ext.toast({
+                                                        html: 'Selesai, Data Telah Selesai',
+                                                        title: 'Notification',
+                                                        width: 200,
+                                                        align: 'tr',
+                                                        icon: base_url + 'system/images/icons/accept.png',
+                                                        timeout: 5000
+                                                    }); 
                                             break;        
                             }
         win.getForm().reset();
-        win.setAction('add');
+        win.setActions('');
 
                     },
                     failure: function(response){
@@ -176,7 +210,7 @@ Ext.define('Almindo.Tspkerja.controller.C_tspkerja',{
     },
     onRowdblclick: function(me, record, item, index){
         var form = this.getFRM_tspkerja();
-            form.setAction('edit');
+            form.setActions('edit');
             form.setRecordIndex(index);
             form.getForm().setValues(record.getData());
             

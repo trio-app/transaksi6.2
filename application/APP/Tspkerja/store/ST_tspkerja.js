@@ -49,9 +49,11 @@
                         pageSize: 20,
 			proxy: {
 				type: 'ajax',
-                                actionMethods: 'POST',
+                                actionMethods: {read: 'POST', create: 'POST', update: 'POST', destroy: 'POST'},
 				api: {
-					read: base_url + 'Tspkerja/read'
+					read: base_url + 'Tspkerja/read',
+                                        create: base_url + 'Tspkerja/create',
+                                        udpate: base_url + 'Tspkerja/update'
 				},
 				reader: {
 					type: 'json',
