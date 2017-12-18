@@ -43,7 +43,7 @@ Ext.define('Almindo.Tspkerja.view.FRM_tspkerja',{
                 action: 'btn_document',
                 xtype: 'button',
                 tooltip: 'Klik untuk melihat Nomor Document',
-                icon: extjs_url + 'resources/ext-theme-classic/images/grid/refresh.gif',
+                icon: base_url + '/system/images/icons/refresh.gif',
             }]
         },{
             xtype: 'datefield',
@@ -61,7 +61,7 @@ Ext.define('Almindo.Tspkerja.view.FRM_tspkerja',{
             },{
                 xtype: 'button',
                 text: 'View List Surat Perintah Kerja',
-                icon: extjs_url + 'resources/ext-theme-classic/images/grid/group-by.gif',
+                icon: base_url + 'system/images/icons/application_go.png',
                 handler: function(){
                     var tab = Ext.getCmp('TAB_tspkerja');
                     tab.setActiveTab(1);

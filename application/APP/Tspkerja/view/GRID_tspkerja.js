@@ -7,7 +7,7 @@
         this.tbar = [
         {
             text: 'Tambah SPK',
-            icon: extjs_url + 'resources/ext-theme-classic/images/dd/drop-add.gif',
+            icon: base_url + 'system/images/icons/add.gif',
             handler: function(){
                 var tab = Ext.getCmp('TAB_tspkerja');
                 tab.setActiveTab(0);
@@ -69,13 +69,13 @@
                 text: 'Delete Record',
                 handler: function () { this.fireEvent('removeitem', this.getSelected()) },
                 scope: this,
-                icon: extjs_url + 'resources/css/icons/delete.gif',
+                icon: base_url + 'system/images/icons/delete.gif',
             }),
             print_file: Ext.create('Ext.Action', {
                 text: 'Print Document',
                 handler: function () { this.fireEvent('print_file', this.getSelected()) },
                 scope: this,
-                icon: extjs_url + 'resources/css/icons/page_copy.png',
+                icon: base_url + 'system/images/icons/page_copy.png',
             }),
             PROSES: Ext.create('Ext.Action', {
                 text: 'PROSES',
